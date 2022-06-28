@@ -12,7 +12,7 @@
         <a class="navbar-brand ms-3" href="#">PHP Console</a>
     </nav>
 
-    <div class="p-5 mb-3 bg-light rounded">
+    <div class="p-5 mb-5 bg-light rounded">
         <div class="container">
             <h1 class="display-4">Consola PHP</h1>
             <p class="lead">Esto es una consola...</p>           
@@ -20,11 +20,84 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="p-3 mb-2 bg-primary text-white">
+    <div class="row">
+            <div class="p-3 mb-3 bg-danger text-white">
+                <h3>Clase: Condicional SWITCH</h3>
                 <?php
-                    echo "hola <br>";
-                    echo "hola";
+                    $num = 10;
+
+                    switch ($num) {
+                        case 1:
+                            echo "La calificacion es muy baja";
+                            break;
+                        case 2:
+                        case 3:
+                        case 4:        
+                            echo "La calificacion sigue siendo baja baja";
+                            break;
+                        case 5:
+                        case 6:        
+                            echo "La calificacion sigue es mediocre";
+                            break;
+                        case 7:
+                        case 8:
+                        case 9:        
+                            echo "La calificacion es buena";
+                            break;
+                        case 10:        
+                            echo "La calificacion es exelente";
+                            break;
+                        default:
+                            echo "No es una nota valida";
+                            break;
+                    }
+                ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="p-3 mb-3 bg-primary text-white">
+                <h3>Clase: Condicional IF</h3>
+                <?php
+                    $name = "Marco";
+
+                    if($name == "Marco"){
+                        echo "Hola Marco!";
+                    }else{
+                        echo "No eres Marco!";
+                    }
+                ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="p-3 mb-3 bg-success text-white">
+                <h3>Clase: Operadores</h3>
+                <?php
+                    $num1 = 1;
+                    $num2 = 1;
+                    //$resultado = $num1 + $num2;
+                    $num1++;
+                    //$num2--;
+
+                    echo "El resultado de la suma es " . ($num1 + $num2) . " <br>"; 
+                    echo "El resultado de la resta es " . ($num1 - $num2) . " <br>"; 
+                    echo "El resultado de la multiplicacion es " . ($num1 * $num2) . " <br>"; 
+                    echo "El resultado de la division es " . ($num1 / $num2) . " <br>"; 
+                    echo "El resultado del modulo es " . ($num1 % $num2) . " <br>"; 
+                ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="p-3 mb-3 bg-primary text-white">
+                <h3>Clase: Variables y tipos de datos</h3>
+                <?php
+                    $name = "Marco";
+                    $isOld = true;
+                    $year = 2001;
+                    $km = 54.4;
+
+                    echo "Hola " . $name . ", naciste en el año " . $year . ", y estas a " . $km . " kilometros." . "<br>";
+                    echo "La variable name es de tipo: " . gettype($name);
                 ?>
             </div>
         </div>
