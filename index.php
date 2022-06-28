@@ -12,7 +12,7 @@
         <a class="navbar-brand ms-3" href="#">PHP Console</a>
     </nav>
 
-    <div class="p-5 bg-light rounded">
+    <div class="p-5 mb-3 bg-light rounded">
         <div class="container">
             <h1 class="display-4">Consola PHP</h1>
             <p class="lead">Esto es una consola...</p>           
@@ -21,7 +21,9 @@
 
     <div class="container">
         <div class="row">
-            
+            <div class="p-3 mb-2 bg-primary text-white">
+                Hola
+            </div>
         </div>
     </div>
 
