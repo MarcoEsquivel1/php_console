@@ -20,86 +20,233 @@
     </div>
 
     <div class="container">
-    <div class="row">
-            <div class="p-3 mb-3 bg-danger text-white">
-                <h3>Clase: Condicional SWITCH</h3>
-                <?php
-                    $num = 10;
 
-                    switch ($num) {
-                        case 1:
-                            echo "La calificacion es muy baja";
-                            break;
-                        case 2:
-                        case 3:
-                        case 4:        
-                            echo "La calificacion sigue siendo baja baja";
-                            break;
-                        case 5:
-                        case 6:        
-                            echo "La calificacion sigue es mediocre";
-                            break;
-                        case 7:
-                        case 8:
-                        case 9:        
-                            echo "La calificacion es buena";
-                            break;
-                        case 10:        
-                            echo "La calificacion es exelente";
-                            break;
-                        default:
-                            echo "No es una nota valida";
-                            break;
-                    }
-                ?>
-            </div>
-        </div>
         <div class="row">
-            <div class="p-3 mb-3 bg-primary text-white">
-                <h3>Clase: Condicional IF</h3>
-                <?php
-                    $name = "Marco";
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-warning text-white">
+                    <h3>Funciones</h3>
+                    <?php
+                        function calc($sign, $num1, $num2){
+                            switch ($sign) {
+                                case "+":
+                                    return $num1 + $num2;
+                                    break;
 
-                    if($name == "Marco"){
-                        echo "Hola Marco!";
-                    }else{
-                        echo "No eres Marco!";
-                    }
-                ?>
+                                case "-":
+                                    return $num1 - $num2;
+                                    break;    
+                                
+                                default:
+                                    # code...
+                                    return 0;
+                            }
+                        }
+
+                        $resultado = calc("+", 3, 3);
+                        echo "El resultado es: " . $resultado;
+                    ?>
+                </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="p-3 mb-3 bg-success text-white">
-                <h3>Clase: Operadores</h3>
-                <?php
-                    $num1 = 1;
-                    $num2 = 1;
-                    //$resultado = $num1 + $num2;
-                    $num1++;
-                    //$num2--;
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-primary text-white">
+                    <h3>Break</h3>
+                    <?php
+                        $names = array("Max", "Tom", "Sarah", "Rocky");
+                        echo "Valores del array: <br>";
 
-                    echo "El resultado de la suma es " . ($num1 + $num2) . " <br>"; 
-                    echo "El resultado de la resta es " . ($num1 - $num2) . " <br>"; 
-                    echo "El resultado de la multiplicacion es " . ($num1 * $num2) . " <br>"; 
-                    echo "El resultado de la division es " . ($num1 / $num2) . " <br>"; 
-                    echo "El resultado del modulo es " . ($num1 % $num2) . " <br>"; 
-                ?>
+                        foreach ($names as $nombre) {
+                            if ($nombre == "Sarah") {
+                                break;
+                            }
+                            echo $nombre . "<br>";
+                        }
+                    ?>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-danger text-white">
+                    <h3>Continue</h3>
+                    <?php
+                        $names = array("Max", "Tom", "Sarah", "Rocky");
+                        echo "Valores del array: <br>";
+
+                        foreach ($names as $nombre) {
+                            if ($nombre == "Sarah") {
+                                continue;
+                            }
+                            echo $nombre . "<br>";
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>    
+
+        <div class="row">
+            <div class="col-4">
+                <div class="p-3 mb-3 bg-primary text-white">
+                    <h3>Arrays</h3>
+                    <?php
+                        $nums = array(1,4,6,7);
+                        echo "Valores del array: <br>";
+
+                        for ($i=0; $i < count($nums); $i++) { 
+                            echo $nums[$i] . "<br>";
+                        }
+                    ?>
+                </div>
+            </div>
+            
+            <div class="col-4">
+                <div class="p-3 mb-3 bg-success text-white">
+                    <h3>Arrays</h3>
+                    <?php
+                        $names = array("Max", "Tom", "Sarah", "Rocky");
+                        echo "Valores del array: <br>";
+
+                        for ($i=0; $i < count($names); $i++) { 
+                            echo $names[$i] . "<br>";
+                        }
+                    ?>
+                </div>
+            </div>
+            
+            <div class="col-4">
+                <div class="p-3 mb-3 bg-danger text-white">
+                    <h3>Foreach</h3>
+                    <?php
+                        $names = array("Max", "Tom", "Sarah", "Rocky");
+                        echo "Valores del array: <br>";
+
+                        foreach ($names as $nombre) {
+                            echo $nombre . "<br>";
+                        }
+                    ?>
+                </div>
+            </div> 
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-success text-white">
+                    <h3>Bucle While</h3>
+                    <?php
+                        $num = 0;
+
+                        while ($num <= 5) {
+                            echo "El numero es : " . $num . "<br>";
+                            $num++;
+                        }
+                    ?>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-warning text-white">
+                    <h3>Bucle For</h3>
+                    <?php
+                        for($i = 0; $i <= 5; $i++ ){
+                            echo "El numero es : " . $i . "<br>";
+                        }
+                    ?>
+                </div>
+            </div>    
+        </div>       
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-danger text-white">
+                
+                    <h3>Condicional SWITCH</h3>
+                    <?php
+                        $num = 10;
+
+                        switch ($num) {
+                            case 1:
+                                echo "La calificacion es muy baja";
+                                break;
+                            case 2:
+                            case 3:
+                            case 4:        
+                                echo "La calificacion sigue siendo baja baja";
+                                break;
+                            case 5:
+                            case 6:        
+                                echo "La calificacion sigue es mediocre";
+                                break;
+                            case 7:
+                            case 8:
+                            case 9:        
+                                echo "La calificacion es buena";
+                                break;
+                            case 10:        
+                                echo "La calificacion es exelente";
+                                break;
+                            default:
+                                echo "No es una nota valida";
+                                break;
+                        }
+                    ?>
+                </div> 
             </div>
         </div>
-        <div class="row">
-            <div class="p-3 mb-3 bg-primary text-white">
-                <h3>Clase: Variables y tipos de datos</h3>
-                <?php
-                    $name = "Marco";
-                    $isOld = true;
-                    $year = 2001;
-                    $km = 54.4;
 
-                    echo "Hola " . $name . ", naciste en el año " . $year . ", y estas a " . $km . " kilometros." . "<br>";
-                    echo "La variable name es de tipo: " . gettype($name);
-                ?>
-            </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-primary text-white">
+                    <h3>Condicional IF</h3>
+                    <?php
+                        $name = "Marco";
+
+                        if($name == "Marco"){
+                            echo "Hola Marco!";
+                        }else{
+                            echo "No eres Marco!";
+                        }
+                    ?>
+                </div>       
+            </div>  
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-success text-white">
+                    <h3>Operadores</h3>
+                    <?php
+                        $num1 = 1;
+                        $num2 = 1;
+                        //$resultado = $num1 + $num2;
+                        $num1++;
+                        //$num2--;
+
+                        echo "El resultado de la suma es " . ($num1 + $num2) . " <br>"; 
+                        echo "El resultado de la resta es " . ($num1 - $num2) . " <br>"; 
+                        echo "El resultado de la multiplicacion es " . ($num1 * $num2) . " <br>"; 
+                        echo "El resultado de la division es " . ($num1 / $num2) . " <br>"; 
+                        echo "El resultado del modulo es " . ($num1 % $num2) . " <br>"; 
+                    ?>
+                </div>        
+            </div>            
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-primary text-white">
+                    <h3>Variables y tipos de datos</h3>
+                    <?php
+                        $name = "Marco";
+                        $isOld = true;
+                        $year = 2001;
+                        $km = 54.4;
+
+                        echo "Hola " . $name . ", naciste en el año " . $year . ", y estas a " . $km . " kilometros." . "<br>";
+                        echo "La variable name es de tipo: " . gettype($name);
+                    ?>
+                </div>
+            </div>         
         </div>
     </div>
 
