@@ -21,6 +21,233 @@
 
     <div class="container">
 
+        <?php 
+            include('person.php');
+            include('automotores/auto.php');
+            include('automatizacion/auto.php');
+        ?>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-info text-white">
+                    <h3>Namespaces</h3>
+                    <?php 
+                        $automotor = new \automotores\Auto("Fiat", 4, 4);
+                        $automatizador = new \automatizacion\Auto("Bot social", 10, "Jueves 2 de Mayo de 2020");
+
+                        echo $automotor->getAuto() . "<br>";
+                        echo $automatizador->getAuto() . "<br>";
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-dark text-white">
+                    <h3>Include</h3>
+                    <?php 
+                        $person = new Person("Marco", "Esquivel");
+
+                        echo $person->greetings();
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-success text-white">
+                    <h3>Formularios GET</h3>
+                    <form class="row g-3" method="get" action="#">
+                        <div class="col-auto">
+                            <label for="saludo" class="visually-hidden">Saludo</label>
+                            <input type="text" class="form-control" id="saludo" name="saludo" placeholder="Di algo">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3">Confirmar</button>
+                        </div>
+                    </form>   
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-danger text-white">
+                    <h3>Formularios GET</h3>
+                    <?php
+                    if(isset($_GET["saludo"])){
+                        echo $_GET["saludo"];
+                    }else{
+                        echo "Esperando saludo";
+                    }
+                        
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-primary text-white">
+                    <h3>Calculadora FORM</h3>
+                    <form class="row g-3" method="post" action="#">
+                        <div class="col-auto">
+                            <input type="number" class="form-control" id="num1" name="num1">
+                        </div>
+                        <div class="col-auto">
+                            <input type="number" class="form-control" id="num2" name="num2">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-dark text-white mb-3">Sumar</button>
+                        </div>
+                    </form>   
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-warning text-white">
+                    <h3>Calculadora Result</h3>
+                    <?php
+                        if(isset($_POST['num1']) && isset($_POST['num2'])){
+                            $result = ($_POST["num1"] + $_POST["num2"]);
+                            echo "El resultado es " . $result;
+                        }else{
+                            echo "Esperando calculo";
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-success text-white">
+                    <h3>Formularios POST</h3>
+                    <form class="row g-3" method="post" action="#">
+                        <div class="col-auto">
+                            <label for="saludo" class="visually-hidden">Saludo</label>
+                            <input type="text" class="form-control" id="saludo" name="saludo" placeholder="Di algo">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3">Confirmar</button>
+                        </div>
+                    </form>   
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="p-3 mb-3 bg-danger text-white">
+                    <h3>Formularios POST</h3>
+                    <?php
+                    if(isset($_POST["saludo"])){
+                        echo $_POST["saludo"];
+                    }else{
+                        echo "Esperando saludo";
+                    }
+                        
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-dark text-white">
+                    <h3>Metodos Estaticos</h3>
+                    <?php
+                        class Calculadora{
+                            public static function sumar($num1, $num2){return $num1 + $num2 ;}
+                            public static function restar($num1, $num2){return $num1 - $num2 ;}
+                        }
+
+                        $calc = new Calculadora();
+
+                        echo "El resultado de la suma es: " . Calculadora::sumar(1,1) . "<br>";
+                        echo "El resultado de la resta es: " . Calculadora::restar(5,1) . "<br>";
+
+                        /* echo "El resultado de la suma es: " . $calc->sumar(1,1) . "<br>";
+                        echo "El resultado de la resta es: " . $calc->restar(5,1) . "<br>"; */
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-danger text-white">
+                    <h3>Herencia</h3>
+                    <?php
+                        class Masscota {
+                            public $nombre;
+                            public $patas;
+
+                            function __construct($nombre, $patas){
+                                $this->nombre = $nombre;
+                                $this->patas = $patas;
+                            }
+
+                            public function eat(){
+                                return "Estoy comiendo";
+                            }
+                        }
+
+                        class Perro extends Masscota{
+                            function run(){
+                                return "Estoy corriendo";
+                            }
+                        }
+
+                        class Gato extends Masscota{
+
+                        }
+
+                        $tommy = new Perro("Tommy", 4);
+                        $rocky = new Gato("Rocky", 4);
+
+                        echo $tommy->run() . "<br>";
+                        echo $tommy->eat() . "<br>";
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-success text-white">
+                    <h3>POO</h3>
+                    <?php
+                        class Mascota{
+                            public $nombre;
+                            public $tipo;
+                            public $patas;
+
+                            function __construct($nombre, $tipo, $patas){
+                                $this->nombre = $nombre;
+                                $this->tipo = $tipo;
+                                $this->patas = $patas;
+                            }
+
+                            public function getDesc(){
+                                if($this->patas == 0){
+                                    return $this->nombre . " es un " . $this->tipo . " y no tiene patas!!!";
+                                }else{
+                                    return $this->nombre . " es un " . $this->tipo . " y tiene " . $this->patas . " patas!!!";
+                                }
+                            }
+                        }
+
+                        $perro = new Mascota("Max", "perro", 4);
+                        $gato = new Mascota("Sarah", "gato", 4);
+                        $pez = new Mascota("Goldeen", "pez", 0);
+
+                        echo $perro->getDesc() . "<br>";
+                        echo $gato->getDesc() . "<br>";
+                        echo $pez->getDesc();
+                    ?>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="p-3 mb-3 bg-warning text-white">
