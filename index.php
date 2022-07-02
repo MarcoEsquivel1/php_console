@@ -25,7 +25,24 @@
             include('person.php');
             include('automotores/auto.php');
             include('automatizacion/auto.php');
+            include('connection.php');
         ?>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-3 bg-dark text-white">
+                    <h3>Base de Datos</h3>
+                    <?php 
+                        $persons = $conn->query('SELECT * from persons');
+
+                        foreach($persons as $person) {
+                            echo "nombre: " . $person["firstname"] . " " . $person["lastname"] . "<br>";
+                        }
+                        $conn = null;
+                    ?>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-12">
